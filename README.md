@@ -1,12 +1,47 @@
-# Space Renewer (空间焕新 AI)
+# 🏠 Space Renewer (空间焕新 AI)
 
-Create an app where I can upload photos of my rooms and get AI-powered organization and decluttering suggestions. It should also be able to virtually rearrange furniture.
+**Space Renewer (空间焕新 AI)** 是一款基于多模态大模型的智能生活辅助应用。用户只需上传一张杂乱房间的照片，AI 就能为您提供“不搬动大件家具”的专属收纳整理与断舍离优化建议，并一键生成整理完成后的极简效果图，用直观的视觉对比激发您的整理动力！
 
-## Run Locally
+## ✨ 核心功能
 
-**Prerequisites:**  Node.js
+* **📸 智能空间审计**：深度视觉分析您的私人空间，精准识别地上的衣物、乱放的杯子、缠绕的电线等具体杂物。
+* **🧹 精细化收纳指南**：根据识别到的杂物，提供具体、可执行的收纳位置建议（如：把桌面的文具放进抽屉、衣物折叠放回衣柜等）。
+* **🗑️ 断舍离目标**：一针见血地指出该丢弃的垃圾（如过期的杂志、空饮料瓶），帮助您轻松迈出断舍离的第一步。
+* **✨ 效果图生成 (AI 整理预览)**：在**保持原图大件家具和房间布局零改变**的前提下，通过 AI 图像生成技术（图生图），生成一张将杂乱小物品放置规整、极简还原后的效果图，为您提供最直观的收纳向导。
 
-1. Install dependencies:
-   `npm install`
-2. Run the app:
-   `npm run dev`
+## 🛠️ 技术栈
+
+* **前端框架**：React 19 + Vite
+* **样式与动画**：Tailwind CSS v4 + Framer Motion (页面过渡动画) + Lucide React (精美图标)
+* **AI 大模型服务 (火山引擎)**：
+  * **视觉分析**：Doubao Vision (负责提取收纳和断舍离建议)
+  * **图像生成**：Doubao Seedream 5.0 lite (负责生成整理后的视觉对比图)
+
+## 🚀 本地运行指南
+
+### 1. 环境要求
+* [Node.js](https://nodejs.org/) (建议 v18+)
+* 火山引擎 (Volcengine) API Key 及对应模型的 Endpoint ID。
+
+### 2. 安装与启动
+
+克隆仓库到本地：
+```bash
+git clone git@github.com:ElienTdog/space-renewer.git
+cd space-renewer
+```
+
+安装依赖：
+```bash
+npm install
+```
+
+配置 API 模型接入点 (位于 `src/services/volcengine.ts`)：
+项目中已预置了火山引擎的 API Key 和 Endpoint ID 进行测试调用。如果您要部署或长期使用，请替换为您自己在火山引擎方舟控制台申请的真实信息。
+
+启动开发服务器：
+```bash
+npm run dev
+```
+
+启动成功后，打开浏览器访问终端中提示的本地地址（通常为 `http://localhost:3000` 或 `http://localhost:3001`）即可开始体验您的“空间焕新”之旅。
